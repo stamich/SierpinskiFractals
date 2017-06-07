@@ -23,8 +23,7 @@ public class SierpinskiTriangle extends SierpinskiFractals
         }
     }
 
-    //@Override
-    public void drawComponent(Graphics gg)
+    public void paintComponent(Graphics gg)
     {
         super.paintComponent(gg);
         Graphics2D g = (Graphics2D) gg;
@@ -32,5 +31,4 @@ public class SierpinskiTriangle extends SierpinskiFractals
         g.translate(margin, margin);
         drawTriangle(g, dimension / 2, 0, dimension);
     }
-
 }

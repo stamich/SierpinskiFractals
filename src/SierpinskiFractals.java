@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
  */
 public class SierpinskiFractals extends JPanel
 {
+
     protected final int dimension = 600;
     protected final int margin = 20;
     protected int limit = dimension;
@@ -22,7 +23,7 @@ public class SierpinskiFractals extends JPanel
             if (limit <= 2)
                 limit = dimension;
             repaint();
-    }).start();
+        }).start();
     }
 
     public static void main(String[] args)
@@ -33,7 +34,20 @@ public class SierpinskiFractals extends JPanel
             f.setTitle("Sierpinski triangle");
             f.setResizable(false);
             f.add(new SierpinskiTriangle(), BorderLayout.CENTER);
+            f.pack();
+            f.setLocationRelativeTo(null);
+            f.setVisible(true);
         });
 
+        SwingUtilities.invokeLater(() ->{
+            JFrame f = new JFrame();
+            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            f.setTitle("Sierpinski carpet");
+            f.setResizable(false);
+            f.add(new SierpinskiCarpet(), BorderLayout.CENTER);
+            f.pack();
+            f.setLocationRelativeTo(null);
+            f.setVisible(true);
+        });
     }
 }
