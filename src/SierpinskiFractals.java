@@ -6,6 +6,7 @@ import java.util.Scanner;
 /**
  * Created by michal on 01.06.17.
  */
+
 public class SierpinskiFractals extends JPanel //implements Cloneable
 {
 
@@ -20,7 +21,7 @@ public class SierpinskiFractals extends JPanel //implements Cloneable
         setBackground(Color.black);
         setForeground(Color.orange);
 
-        new Timer(3000, (ActionEvent e) -> {
+        new Timer(1000, (ActionEvent e) -> {
             limit /= 2;
             if (limit <= 2)
                 limit = dimension;
@@ -40,6 +41,19 @@ public class SierpinskiFractals extends JPanel //implements Cloneable
         System.out.println("If you want to see Sierpinski's Carpet choice: 2.");
         System.out.println("If you want to both Sierpinski's fractals choice: 3.");
         int choice = in.nextInt();
+
+        SwingUtilities.invokeLater(() -> {
+            JFrame f =  new JFrame();
+            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            f.setTitle("Choice");
+            f.setResizable(false);
+            f.add(new SierpinskiFractalChoice(), BorderLayout.WEST);
+            f.setLocation(300,800);
+            //f.setLocationRelativeTo(null);
+            f.setSize(400, 200);
+            f.pack();
+            f.setVisible(true);
+        });
 
         switch (choice) {
             case 1: {

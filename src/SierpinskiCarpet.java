@@ -3,6 +3,7 @@ import java.awt.*;
 /**
  * Created by michal on 01.06.17.
  */
+
 public class SierpinskiCarpet extends SierpinskiFractals
 {
     void drawCarpet(Graphics2D g, int x, int y, int size)

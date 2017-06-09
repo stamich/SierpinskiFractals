@@ -4,6 +4,7 @@ import java.awt.geom.Path2D;
 /**
  * Created by michal on 01.06.17.
  */
+
 public class SierpinskiTriangle extends SierpinskiFractals
 {
     void drawTriangle(Graphics2D g, int x, int y, int size)
