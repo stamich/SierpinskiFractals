@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- * Created by michal on 01.06.17.
+ * Created by michal on 21.05.17.
  */
 
 public class SierpinskiCarpet extends SierpinskiFractals
@@ -10,11 +10,12 @@ public class SierpinskiCarpet extends SierpinskiFractals
     {
         if (size < limit)
             return;
-        size /=3;
+        size /= 3;
         for (int i = 0; i < 9; i++)
         {
             if (i == 4)
             {
+                //g.setColor(RandomColor.next());
                 g.fillRect(x + size, y + size, size, size);
             } else {
                 drawCarpet(g, x + (i % 3) * size, y +(i /3) * size, size);

@@ -2,7 +2,7 @@ import java.awt.*;
 import java.awt.geom.Path2D;
 
 /**
- * Created by michal on 01.06.17.
+ * Created by michal on 21.05.17.
  */
 
 public class SierpinskiTriangle extends SierpinskiFractals
@@ -15,6 +15,7 @@ public class SierpinskiTriangle extends SierpinskiFractals
             p.moveTo(x, y);
             p.lineTo(x + size / 2,y + size);
             p.lineTo(x - size / 2,y + size);
+            //g.setColor(RandomColor.next());
             g.fill(p);
         } else {
             size /= 2;

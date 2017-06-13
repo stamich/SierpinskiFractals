@@ -3,8 +3,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Scanner;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sqrt;
+import static java.lang.Math.toRadians;
+
 /**
- * Created by michal on 01.06.17.
+ * Created by michal on 21.05.17.
  */
 
 public class SierpinskiFractals extends JPanel //implements Cloneable
@@ -12,6 +16,8 @@ public class SierpinskiFractals extends JPanel //implements Cloneable
 
     protected final int dimension = 600;
     protected final int margin = 20;
+    protected final double degrees072 = toRadians(72);
+    protected final double scaleFactor = 1 / (2 + cos(degrees072) * 2);
     protected int limit = dimension;
 
 
@@ -23,7 +29,7 @@ public class SierpinskiFractals extends JPanel //implements Cloneable
 
         new Timer(1000, (ActionEvent e) -> {
             limit /= 2;
-            if (limit <= 2)
+            if (limit <= 3)
                 limit = dimension;
             repaint();
         }).start();
@@ -40,9 +46,11 @@ public class SierpinskiFractals extends JPanel //implements Cloneable
         System.out.println("If you want to see Sierpinski's Triangle choice: 1.");
         System.out.println("If you want to see Sierpinski's Carpet choice: 2.");
         System.out.println("If you want to both Sierpinski's fractals choice: 3.");
+        //System.out.println("If you want to see Sierpinski's Pentagon choice: 4.");
+
         int choice = in.nextInt();
 
-        SwingUtilities.invokeLater(() -> {
+        /*SwingUtilities.invokeLater(() -> {
             JFrame f =  new JFrame();
             f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             f.setTitle("Choice");
@@ -53,7 +61,7 @@ public class SierpinskiFractals extends JPanel //implements Cloneable
             f.setSize(400, 200);
             f.pack();
             f.setVisible(true);
-        });
+        });*/
 
         switch (choice) {
             case 1: {
@@ -84,6 +92,7 @@ public class SierpinskiFractals extends JPanel //implements Cloneable
                 });
                 break;
             }
+
             case 3: {
                 SwingUtilities.invokeLater(() -> {
                     JFrame f = new JFrame();
@@ -99,6 +108,31 @@ public class SierpinskiFractals extends JPanel //implements Cloneable
                 });
                 break;
             }
+
+            /*case 4: {
+                SwingUtilities.invokeLater(() -> {
+                    JFrame f = new JFrame();
+                    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    f.setTitle("Sierpinski Pentagon");
+                    f.setResizable(true);
+                    f.add(new SierpinskiPentagon(), BorderLayout.CENTER);
+                    f.pack();
+                    f.setLocationRelativeTo(null);
+                    f.setVisible(true);
+                });
+                break;
+            }*/
         }
     }
 }
+
+/*class RandomColor
+{
+    final static double goldenRatioConjugate = (sqrt(5) - 1) / 2;
+    private static double hue = Math.random();
+
+    static Color next() {
+        hue = (hue + goldenRatioConjugate) % 1;
+        return Color.getHSBColor((float) hue, 1, 1);
+    }
+}*/
