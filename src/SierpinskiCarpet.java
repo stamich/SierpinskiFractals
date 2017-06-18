@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- * Created by michal on 21.05.17.
+ * Created by michal on 22.05.17.
  */
 
 public class SierpinskiCarpet extends SierpinskiFractals
